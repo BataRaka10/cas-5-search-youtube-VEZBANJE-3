@@ -12,7 +12,7 @@ import VIDEOS from "./../videos.json"
 // * dobijamo SVE VIDEO KLIPVE  ({videos}) iz glavne komponente
 // * moramo da vratimo nazad neki rezultat -> vratimo se u Home.jsx
 //   ({videos}) -> prosledjujemo ceo jedan state -> prihvatamo videos
-const SearchBar = ({videos, onSearchVideo}) => {
+const SearchBar = () => {
     // console.log(videos)
     // console.log(videos, onSearchVideo)
 
@@ -21,7 +21,7 @@ const SearchBar = ({videos, onSearchVideo}) => {
         <form>
             <label>
                 Search:
-                <input type="text" name="search" onInput={ (e) => SearchVideoByName(e.currentTarget.value, videos, onSearchVideo)} />
+                <input type="text" name="search" onInput={ (e) => SearchVideoByName(e.currentTarget.value)} />
             </label>
         </form>
         </>
@@ -43,19 +43,22 @@ const SearchBar = ({videos, onSearchVideo}) => {
 // * ---- onSearchVideo -> menja vrednost naseg filteredVideos(state)
 // * kroz SearchBar komponentu -> mi uspesno modifikjuemo filteredVideos
 
-const SearchVideoByName = (name, videos, onSearchVideo) => {
+
+
+
+// const SearchVideoByName = (name, videos, onSearchVideo) => {
     // console.log(name, videos, onSearchVideo)
     // console.log(e.currentTarget.value)
     // console.log(VIDEOS)
 
     // * foundVideos -> array u koji pushujemo te objedkte koje nalazimo
-    let foundVideos = [];
+    // let foundVideos = [];
 
     // * lista svih VIDEOS(video klipova) / domaci po titlu / VIDEOS bio 
-    videos.forEach( video => {
+    // videos.forEach( video => {
 
-        name = name.toLowerCase()
-        video.title = video.title.toLowerCase()
+        // name = name.toLowerCase()
+        // video.title = video.title.toLowerCase()
 
         // let recenica = "Kako si"
         // let pretraga = "kak"
@@ -67,7 +70,7 @@ const SearchVideoByName = (name, videos, onSearchVideo) => {
         // if (e.currentTarget.value === video.title)
 
         // * kako mi da promenimo sta se nama nalazi u filteredVideos -> mozemo koristeci onSearchVideo -> ** onSearchVideo u sustini MENJA VREDNOST naseg filteredVideos state-a
-        if (video.title.includes(name)) {
+        // if (video.title.includes(name)) {
             // console.log("Nasli smo video " + video.title)
 
              // * pretrazujemno json sa video klipovima => NASLI SMO GA onSearchVideo(video) njemu PROSLEDJUJE
@@ -77,14 +80,13 @@ const SearchVideoByName = (name, videos, onSearchVideo) => {
             // ako nadje dva klipa -> on prosledi jedan
             // * ovde vracamo samo objekat / mi mu ne vracmo array sa objedktima
 
-            // * ovde vracamo samo objekat / mi mu ne vracmo array sa objedktima
 
              // * opet vraca jedan klip / ubaci react ii umesto da doda na to css , on obrise react i stavi css 
             // * napravili smo jedan array (foundVideos) sa video klipovima koje smo nasli i svaki put kada nadjemo video klip -> pusujemo taj array
-            onSearchVideo([video]); // prosledimo video koji sm omi nasli
+            // onSearchVideo([video]); // prosledimo video koji sm omi nasli
             // prosledimo video koji sm omi nasli
-            foundVideos.push(video)
-        }
+            // foundVideos.push(video)
+        // }
 
         // if (e.currentTarget.value === video.title) {
             // console.log(video.title)
@@ -92,10 +94,12 @@ const SearchVideoByName = (name, videos, onSearchVideo) => {
 
         // }
 
-    })
+    // })
 
-    onSearchVideo(foundVideos)
-}
+    // onSearchVideo(foundVideos)
+// }
+
+export default SearchBar;
 
 // const SearchVideoByName = (name) => {
     // console.log(e.currentTarget.value)
@@ -115,5 +119,3 @@ const SearchVideoByName = (name, videos, onSearchVideo) => {
 //     })
 
 // }
-
-export default SearchBar;
