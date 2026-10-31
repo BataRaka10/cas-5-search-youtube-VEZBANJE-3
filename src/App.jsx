@@ -9,7 +9,7 @@ import SearchBar from "./Components/SearchBar";
 // path "about" = htps://http://localhost:5174/about
 
 // * :wild card -> da kao korisnici mozemo da unesemo bilo sta
-// * /Video/:id (wild card) => :id *** u brosweru cemo kucati 1, 5, 7, ... *** , 1, 5, 7... (wild card)
+// * /Video/:id (wild card) => UMESTO :id *** u brosweru cemo kucati 1, 5, 7, ... *** , 1, 5, 7... (wild card)
 // /video/12, /video/12,  /video/1
 
 // * <BrowserRouter> = rutiranje u braseru(browser)
@@ -39,14 +39,7 @@ const VIDEOS = [
 const App = () => {
     return (
         <>
-            { VIDEOS.map( video => {
-                return (
-                    <a href={ video.url } target="_blank">
-                        <img src={ video.cover} alt="" />
-                        <h2>{ video.title }</h2>
-                    </a>
-                )
-            })}
+            
             {/* <BrowserRouter>
                 <Routes>
                     <Route path="/" element={ <Home /> } />

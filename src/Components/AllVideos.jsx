@@ -1,6 +1,15 @@
 
+// * video.json -> koji sadrzi sav taj sadrzaj
+import VIDEOS from "./../videos.json" // 
 
-import VIDEOS from "./../videos.json"
+
+// * ocekuje array sa objektima - ocekuje json
+// 6. cas
+// dodaje se u etAllVideos = ({videos}) => {}
+// -- primer -> key={video.id} !!!
+// * funkcija GetAllVideos --> ispisuje sve video klipove
+
+// * AllVideos nam sluzi - kako bi pokazao te video klipove
 
 
 
@@ -8,7 +17,14 @@ const GetAllVideos = () => {
 
     return (
         <>
-            
+            { VIDEOS.map( video => {
+                return (
+                    <a href={ video.url } target="_blank">
+                        <img src={ video.cover} alt="" />
+                        <h2>{ video.title }</h2>
+                    </a>
+                )
+            })}
         </>
     )
 }
